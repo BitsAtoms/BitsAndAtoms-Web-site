@@ -11,7 +11,7 @@ const spaces = [
     name: "FabLab",
     icon: Wrench,
     description:
-      "Espacio de experimentación y creación donde las ideas se transforman en prototipos reales mediante procesos de fabricación digital y trabajo manual.",
+      "Taller de fabricación digital equipado con impresoras 3D, cortadoras láser, fresadoras CNC y otras herramientas.",
     image:
       "https://images.unsplash.com/photo-1694701503673-379c9e0d887e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
     features: [
@@ -23,7 +23,7 @@ const spaces = [
       "Espacio de montaje y testeo"
     ],
   },
-  {
+ /* {
     id: "estudio_audiovisual",
     name: "Estudio audiovisual",
     icon: Clapperboard,
@@ -40,6 +40,7 @@ const spaces = [
       "Software de edición audiovisual"
     ],
   },
+  */
   /*{
     id: "incubadora",
     name: "Incubadora",
@@ -62,9 +63,9 @@ const spaces = [
     name: "Universidad",
     icon: GraduationCap,
     description:
-      "Espacios académicos diseñados para el aprendizaje activo, el trabajo en grupo y la conexión entre formación, investigación y proyectos reales.",
+      "Campus académico para que los alumnos socialicen. Las mejores ideas surgen aquí.",
     image:
-      "https://images.unsplash.com/photo-1728933102332-a4f1a281a621?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "img/uni.jpg",
     features: [
       "Aulas polivalentes",
       "Zonas de trabajo colaborativo",
@@ -76,12 +77,12 @@ const spaces = [
   },
   {
     id: "ofi_desarrollo",
-    name: "Oficinas de desarrollo",
+    name: "Espacios de trabajo",
     icon: Laptop,
     description:
-      "Espacios profesionales orientados al desarrollo de proyectos tecnológicos, trabajo en equipo y coordinación con clientes y partners.",
+      "Salas equipadas donde crear y desarrollar proyectos para clientes.",
     image:
-      "https://images.unsplash.com/photo-1497366216548-37526070297c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "img/espacio_desarrollo.jpg",
     features: [
       "Mesas de trabajo en equipo",
       "Pantallas para diseño y programación",
@@ -98,7 +99,7 @@ const spaces = [
     description:
       "Sala de reuniones y videoconferencias con proyección inmersiva 360 para una experiencia envolvente.",
     image:
-      "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "img/sala 360.jpg",
     features: [
       "Sistema de proyección envolvente",
       "Cámaras y audio para videoconferencia",
@@ -113,9 +114,9 @@ const spaces = [
     name: "Showrooms",
     icon: Sparkles,
     description:
-      "Espacios polivalentes de gran formato para eventos, conferencias, presentaciones y hackathons, donde también se exhiben los proyectos desarrollados por bits&atoms.",
+      "Los espacios que tus amigos no creerán que existen. Sólo si formas parte de Bits & Atoms lo entenderás.",
     image:
-      "https://images.unsplash.com/photo-1544531586-fde5298cdd40?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+      "img/showrooms.jpg",
     features: [
       "Capacidad para eventos y conferencias",
       "Pantalla y proyección de gran formato",

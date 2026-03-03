@@ -81,9 +81,9 @@ const mentors = [
   },
   {
     name: "Carles Mayans",
-    role: "Marketing 3.0",
+    role: ". Estrategia y contenido",
     image: "Mentores/Carles_Mayans.png",
-    bio: "Aprende a conectar con tus clientes a un nivel emocional y ético, utilizando las estrategias avanzadas del marketing.",
+    bio: "Aprende a comunicar de manera efectiva y a crear contenido con criterio. La creatividad sin estrategia sólo es arte. ",
     social: {
       linkedin: "https://www.linkedin.com/in/cmayansc/",
       website: "#",
