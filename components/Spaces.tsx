@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "framer-motion";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Cpu, Clapperboard, GraduationCap, Wrench, Laptop, Sprout, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import { useScrollFocusSection } from "./useScrollFocusSection";
 
-/* ---------------- DATA ---------------- */
+/* ---------------- DATOS ---------------- */
 const spaces = [
   {
     id: "fablab",
@@ -12,8 +13,9 @@ const spaces = [
     icon: Wrench,
     description:
       "Taller de fabricación digital equipado con impresoras 3D, cortadoras láser, fresadoras CNC y otras herramientas.",
-    image:
+    images: [
       "https://images.unsplash.com/photo-1694701503673-379c9e0d887e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    ],
     features: [
       "Impresoras 3D para prototipado rápido",
       "Cortadora y grabadora láser",
@@ -29,8 +31,9 @@ const spaces = [
     icon: Clapperboard,
     description:
       "Estudio profesional equipado para la creación de podcasts, vídeos, contenido multimedia y emisiones en directo.",
-    image:
+    images: [
       "https://images.unsplash.com/photo-1563394867331-e687a36112fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    ],
     features: [
       "Cámaras profesionales y trípodes",
       "Micrófonos de estudio y de corbata",
@@ -47,8 +50,9 @@ const spaces = [
     icon: Cpu,
     description:
       "Zona tranquila para estudio individual y trabajo colaborativo con recursos técnicos actualizados.",
-    image:
+    images: [
       "https://images.unsplash.com/photo-1758685848208-e108b6af94cc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080",
+    ],
     features: [
       "Puestos de trabajo individuales",
       "Salas de reuniones pequeñas",
@@ -64,8 +68,12 @@ const spaces = [
     icon: GraduationCap,
     description:
       "Campus académico para que los alumnos socialicen. Las mejores ideas surgen aquí.",
-    image:
+    images: [
       "img/uni.jpg",
+      "img/podcast_1.jpeg",
+      "img/sala 360.jpg",
+      "img/showrooms.jpg",
+    ],
     features: [
       "Aulas polivalentes",
       "Zonas de trabajo colaborativo",
@@ -81,8 +89,12 @@ const spaces = [
     icon: Laptop,
     description:
       "Salas equipadas donde crear y desarrollar proyectos para clientes.",
-    image:
+    images: [
       "img/espacio_desarrollo.jpg",
+      "img/podcast_1.jpeg",
+      "img/sala 360.jpg",
+      "img/showrooms.jpg",
+    ],
     features: [
       "Mesas de trabajo en equipo",
       "Pantallas para diseño y programación",
@@ -98,8 +110,9 @@ const spaces = [
     icon: Sprout,
     description:
       "Sala de reuniones y videoconferencias con proyección inmersiva 360 para una experiencia envolvente.",
-    image:
+    images: [
       "img/sala 360.jpg",
+    ],
     features: [
       "Sistema de proyección envolvente",
       "Cámaras y audio para videoconferencia",
@@ -115,8 +128,9 @@ const spaces = [
     icon: Sparkles,
     description:
       "Los espacios que tus amigos no creerán que existen. Sólo si formas parte de Bits & Atoms lo entenderás.",
-    image:
+    images: [
       "img/showrooms.jpg",
+    ],
     features: [
       "Capacidad para eventos y conferencias",
       "Pantalla y proyección de gran formato",
@@ -129,13 +143,52 @@ const spaces = [
 ];
 
 
-/* ---------------- COMPONENT ---------------- */
+/* ---------------- COMPONENTE DE SLIDESHOW ---------------- */
+
+function SpaceImageSlideshow({ images, name }: { images: string[], name: string }) {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    // Si hay una sola imagen, no hacemos nada (se queda estática)
+    if (images.length <= 1) return;
+
+    // Cambiar imagen cada 2 segundos (2000 ms)
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, [images]);
+
+  return (
+    <div className="w-full h-full relative overflow-hidden">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={index}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <ImageWithFallback
+            src={images[index]}
+            alt={name}
+            className="w-full h-full object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
+    </div>
+  );
+}
+
+/* ---------------- COMPONENTE PRINCIPAL ---------------- */
 
 export function Spaces() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const focusRef = useScrollFocusSection("green");
 
-  // Fonctions de navigation (Uniquement pour Desktop)
+  // Funciones de navegación (Solo para Desktop)
   const nextSpace = () => {
     setCurrentIndex((prev) => (prev + 1) % spaces.length);
   };
@@ -154,7 +207,7 @@ export function Spaces() {
     >
       <div className="max-w-7xl mx-auto">
         
-        {/* HEADER (Commun) */}
+        {/* HEADER (Común) */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 20 }}
@@ -185,7 +238,7 @@ export function Spaces() {
         </motion.div>
 
         {/* ========================================================= */}
-        {/* VUE MOBILE : Scroll Horizontal (lg:hidden) */}
+        {/* VISTA MÓVIL : Scroll Horizontal (lg:hidden) */}
         {/* ========================================================= */}
         <div className="lg:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 -mx-4 px-4">
           {spaces.map((space) => (
@@ -193,13 +246,9 @@ export function Spaces() {
               key={space.id} 
               className="min-w-[85vw] snap-center bg-card rounded-3xl border border-border overflow-hidden shadow-sm flex flex-col"
             >
-              {/* Image Mobile */}
+              {/* Imagen Móvil */}
               <div className="h-48 relative">
-                <ImageWithFallback
-                  src={space.image}
-                  alt={space.name}
-                  className="w-full h-full object-cover"
-                />
+                <SpaceImageSlideshow images={space.images} name={space.name} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
                   <space.icon size={20} />
@@ -207,7 +256,7 @@ export function Spaces() {
                 </div>
               </div>
 
-              {/* Contenu Mobile */}
+              {/* Contenido Móvil */}
               <div className="p-6 flex-1 flex flex-col">
                 <p className="text-muted-foreground text-sm mb-6 flex-1">
                   {space.description}
@@ -216,7 +265,7 @@ export function Spaces() {
                 <div className="space-y-3">
                   <h4 className="text-xs font-bold uppercase tracking-widest text-primary">Equipamiento</h4>
                   <div className="flex flex-wrap gap-2">
-                    {space.features.slice(0, 4).map((f) => ( // On en montre un peu moins sur mobile pour pas faire trop long
+                    {space.features.slice(0, 4).map((f) => ( // Mostramos un poco menos en móvil para no hacerlo muy largo
                       <span key={f} className="text-xs bg-muted px-2 py-1 rounded-md text-muted-foreground border border-border">
                         {f}
                       </span>
@@ -233,11 +282,11 @@ export function Spaces() {
 
 
         {/* ========================================================= */}
-        {/* VUE DESKTOP : Carousel Original (hidden lg:block) */}
+        {/* VISTA DESKTOP : Carrusel Original (hidden lg:block) */}
         {/* ========================================================= */}
         <div className="hidden lg:block">
           
-          {/* Navigation Controls */}
+          {/* Controles de Navegación */}
           <motion.div 
             className="flex items-center justify-center gap-8 mb-12"
             initial={{ opacity: 0, y: 20 }}
@@ -266,7 +315,7 @@ export function Spaces() {
             </button>
           </motion.div>
 
-          {/* Content Display (Desktop) */}
+          {/* Visualización de Contenido (Desktop) */}
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSpace.id}
@@ -276,17 +325,13 @@ export function Spaces() {
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.4 }}
             >
-              {/* Image */}
+              {/* Imagen */}
               <div className="relative h-[550px] rounded-[2rem] overflow-hidden group shadow-2xl border border-border/50">
-                <ImageWithFallback
-                  src={currentSpace.image}
-                  alt={currentSpace.name}
-                  className="w-full h-full object-cover"
-                />
+                <SpaceImageSlideshow images={currentSpace.images} name={currentSpace.name} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
 
-              {/* Info */}
+              {/* Información */}
               <div className="flex flex-col justify-center h-full">
                 <h3 className="mb-6 text-4xl font-bold text-foreground">{currentSpace.name}</h3>
                 <p className="text-muted-foreground mb-10 text-lg leading-relaxed">
@@ -335,3 +380,4 @@ export function Spaces() {
     </section>
   );
 }
+
