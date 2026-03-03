@@ -70,9 +70,8 @@ const spaces = [
       "Campus académico para que los alumnos socialicen. Las mejores ideas surgen aquí.",
     images: [
       "img/uni.jpg",
-      "img/podcast_1.jpeg",
-      "img/sala 360.jpg",
-      "img/showrooms.jpg",
+      "img/uni1.jpeg",
+      "img/uni2.jpg",
     ],
     features: [
       "Aulas polivalentes",
@@ -91,9 +90,8 @@ const spaces = [
       "Salas equipadas donde crear y desarrollar proyectos para clientes.",
     images: [
       "img/espacio_desarrollo.jpg",
-      "img/podcast_1.jpeg",
-      "img/sala 360.jpg",
-      "img/showrooms.jpg",
+      "img/desarrollo.jpeg",
+      "img/desarrollo1.jpeg",
     ],
     features: [
       "Mesas de trabajo en equipo",
@@ -111,7 +109,7 @@ const spaces = [
     description:
       "Sala de reuniones y videoconferencias con proyección inmersiva 360 para una experiencia envolvente.",
     images: [
-      "img/sala 360.jpg",
+      "img/sala_360R.jpeg",
     ],
     features: [
       "Sistema de proyección envolvente",
@@ -129,7 +127,11 @@ const spaces = [
     description:
       "Los espacios que tus amigos no creerán que existen. Sólo si formas parte de Bits & Atoms lo entenderás.",
     images: [
-      "img/showrooms.jpg",
+      "img/showroom1.jpeg",
+      "img/showroom2.jpeg",
+      "img/cafete.jpeg",
+      "img/jeep.jpeg",
+      "img/cotxe.jpeg",
     ],
     features: [
       "Capacidad para eventos y conferencias",
@@ -162,7 +164,7 @@ function SpaceImageSlideshow({ images, name }: { images: string[], name: string 
 
   return (
     <div className="w-full h-full relative overflow-hidden">
-      <AnimatePresence mode="wait">
+      <AnimatePresence>
         <motion.div
           key={index}
           initial={{ opacity: 0 }}
