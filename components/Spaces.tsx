@@ -319,7 +319,7 @@ export function Spaces() {
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSpace.id}
-              className="grid lg:grid-cols-2 gap-12 items-center"
+              className="grid lg:grid-cols-[3fr_2fr] gap-12 items-center"
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
@@ -380,4 +380,3 @@ export function Spaces() {
     </section>
   );
 }
-
