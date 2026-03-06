@@ -69,9 +69,9 @@ const spaces = [
     description:
       "Campus académico para que los alumnos socialicen. Las mejores ideas surgen aquí.",
     images: [
-      "img/uni.jpg",
-      "img/uni1.jpeg",
       "img/uni2.jpg",
+      "img/uni.jpg",
+      
     ],
     features: [
       "Aulas polivalentes",
@@ -128,7 +128,7 @@ const spaces = [
       "Los espacios que tus amigos no creerán que existen. Sólo si formas parte de Bits & Atoms lo entenderás.",
     images: [
       "img/showroom1.jpeg",
-      "img/showroom2.jpeg",
+      "img/show.jpg",
       "img/cafete.jpeg",
       "img/jeep.jpeg",
       "img/cotxe.jpeg",
