@@ -48,7 +48,7 @@ export function Contact() {
     if (formData.cv) formToSend.append("cv", formData.cv);
     if (formData.coverLetter) formToSend.append("coverLetter", formData.coverLetter);
 
-    const promise = fetch("http://localhost:5000/api/contact", {
+    const promise = fetch("https://bitsandatoms-web-site-backend.onrender.com/api/contact", {
       method: "POST",
       body: formToSend,
     }).then((res) => {
@@ -260,7 +260,7 @@ export function Contact() {
                 <h4 className="font-bold mb-3">Contacto</h4>
 
                 <p className="text-sm text-muted-foreground flex items-center gap-2">
-                  <Mail size={16} /> jsedano@admira.com
+                  <Mail size={16} /> comunicacion@admira.com
                 </p>
                 <p className="text-sm text-muted-foreground flex items-center gap-2 mt-2">
                   <MapPin size={16} /> Gràcia, Barcelona

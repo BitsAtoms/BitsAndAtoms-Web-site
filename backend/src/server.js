@@ -17,10 +17,17 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors({
    // origin: 'http://localhost:5173',
-    origin: 'https://bitsatoms.github.io/BitsAndAtoms-Web-site/',
+    origin: 'https://bitsatoms.github.io',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials : true,
 }));
+
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Private-Network', 'true');
+    next();
+});
+
+app.use(express.json());
 
 app.use('/api',contactRoutes);
 app.use("/uploads", express.static(path.join(__dirname, '../uploads')));

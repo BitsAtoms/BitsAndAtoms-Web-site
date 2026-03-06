@@ -81,7 +81,7 @@ const mentors = [
   },
   {
     name: "Carles Mayans",
-    role: ". Estrategia y contenido",
+    role: "Estrategia y contenido",
     image: "Mentores/Carles_Mayans.png",
     bio: "Aprende a comunicar de manera efectiva y a crear contenido con criterio. La creatividad sin estrategia sólo es arte. ",
     social: {
