@@ -13,32 +13,37 @@ const projects = [
   {
     title: "Simulador de Combate Realidad Virtual & Jeep",
     description: "Sistema dual de combate: juega en pantalla gigante con un Jeep modificado y pistolas tácticas, o sumérgete totalmente con gafas de realidad virtual.",
-    image: "https://images.unsplash.com/photo-1725923727790-15ec49fa4d15?fit=max&q=80&w=1080",
+    image: "https://imgs.search.brave.com/GRCEKmrBM4kwEOQlYKSay6obgP47HpzmlL_kjqb6jfE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMTUv/ODk5LzE0NS9zbWFs/bC9tYW4tZXhwZXJp/ZW5jaW5nLXZpcnR1/YWwtcmVhbGl0eS13/ZWFyaW5nLXZpcnR1/YWwtcmVhbGl0eS1n/bGFzc2VzLXBob3Rv/LmpwZw",
     category: "RV",
     gallery: [
       "public/Projects/Backjeep.jpg",
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=max&q=80&w=1080"
+      
     ],
     videos: [
       "public/Projects/VideoGameJeep.mp4",
-      "https://www.youtube.com/embed/dQw4w9WgXcQ"
+      "public/Projects/Video_gafasRv.mp4"
     ]
   },
   {
     title: "Plataforma Educativa Inteligente",
     description: "Aprendizaje adaptativo basado en IA.",
     image: "https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080",
-    category: "IA",
+    category: "Robotica",
     gallery: ["https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080"],
-    videos: []
+    videos: ["public/Projects/perroRobot.mp4",
+            "https://www.youtube.com/shorts/jaiPjj3FrEI?t=8&feature=share"
+
+
+    ]
   },
   {
     title: "Prótesis Biónica Accesible",
     description: "Diseño funcional mediante impresión 3D.",
-    image: "https://images.unsplash.com/photo-1694701503673-379c9e0d887e?fit=max&q=80&w=1080",
-    category: "Hardware",
-    gallery: ["https://images.unsplash.com/photo-1694701503673-379c9e0d887e?fit=max&q=80&w=1080"],
-    videos: []
+    image: "public/Projects/podcast.jpg",
+    category: "Podcast",
+    gallery: ["public/Projects/podcast1.jpg", "public/Projects/podcast2.jpg"],
+    videos: ["https://www.youtube.com/watch?v=_Fa6OJ_CoUQ",
+          "https://www.youtube.com/watch?v=ZZ4M4r3-CvQ"]
   },
   {
     title: "Experiencia AR para Museos",
@@ -46,7 +51,8 @@ const projects = [
     image: "https://images.unsplash.com/photo-1758685848208?fit=max&q=80&w=1080",
     category: "AR / VR",
     gallery: ["https://images.unsplash.com/photo-1758685848208?fit=max&q=80&w=1080"],
-    videos: []
+    videos: [
+    ]
   },
   {
     title: "Robot Autónomo Solar",
@@ -76,6 +82,33 @@ function getVisibleCountFromWidth(width: number) {
   if (width >= 768) return 2; // md
   return 1; // mobile fallback
 }
+
+const getEmbedUrl = (url: string | null): string => {
+  if (!url) return "";
+
+  // Check if it's already an embed URL
+  if (url.includes("/embed/")) {
+    return url;
+  }
+
+  if (url.includes("youtube.com/watch")) {
+    const videoId = url.split("v=")[1]?.split("&")[0];
+    if (videoId) return `https://www.youtube.com/embed/${videoId}`;
+  }
+
+  if (url.includes("youtu.be/")) {
+    const videoId = url.split("youtu.be/")[1]?.split("?")[0];
+    if (videoId) return `https://www.youtube.com/embed/${videoId}`;
+  }
+
+  if (url.includes("youtube.com/shorts/")) {
+    const videoId = url.split("shorts/")[1]?.split("?")[0];
+    if (videoId) return `https://www.youtube.com/embed/${videoId}`;
+  }
+
+  // For local videos or other URLs
+  return url;
+};
 
 export function Projects() {
   const focusRef = useScrollFocusSection("pink");
@@ -385,7 +418,7 @@ export function Projects() {
                       {/* Main Video Player */}
                       <div className="rounded-2xl overflow-hidden aspect-video border border-border bg-black">
                         <iframe
-                          src={activeVideo}
+                          src={getEmbedUrl(activeVideo)}
                           className="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
