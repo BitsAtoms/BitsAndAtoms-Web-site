@@ -16,12 +16,12 @@ const projects = [
     image: "https://imgs.search.brave.com/GRCEKmrBM4kwEOQlYKSay6obgP47HpzmlL_kjqb6jfE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMTUv/ODk5LzE0NS9zbWFs/bC9tYW4tZXhwZXJp/ZW5jaW5nLXZpcnR1/YWwtcmVhbGl0eS13/ZWFyaW5nLXZpcnR1/YWwtcmVhbGl0eS1n/bGFzc2VzLXBob3Rv/LmpwZw",
     category: "RV",
     gallery: [
-      "public/Projects/Backjeep.jpg",
+      "Projects/Backjeep.jpg",
       
     ],
     videos: [
-      "public/Projects/VideoGameJeep.mp4",
-      "public/Projects/Video_gafasRv.mp4"
+      "Projects/VideoGameJeep.mp4",
+      "Projects/Video_gafasRv.mp4"
     ]
   },
   {
@@ -30,7 +30,7 @@ const projects = [
     image: "https://imgs.search.brave.com/kF6pI7h-BZRE6vxI8GxgS_PcUcoidmGeHcWWqFMGl80/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTIy/MDU5MTgyMS9lcy9m/b3RvL3JvYm90LXkt/bWFuby1odW1hbmEt/Y29uLWVuZ3JhbmFq/ZXMuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPW02MVZUYkJM/bFhISGdkbVVEd0Y1/SXQtTHVwOXBhTmRU/MGM2X1I0dXJHNEE9",
     category: "Robotica",
     gallery: ["https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080"],
-    videos: ["public/Projects/perroRobot.mp4",
+    videos: ["Projects/perroRobot.mp4",
             "https://www.youtube.com/shorts/jaiPjj3FrEI",
             "https://www.youtube.com/shorts/v-cNINzUhJ8"
     ]
@@ -38,9 +38,9 @@ const projects = [
   {
     title: "Podcast",
     description:" Una serie de encuentros donde exploramos diversos temas de tecnología, innovación y ciencia. Cada episodio analiza un desafío diferente del mundo digital y físico.",
-    image: "public/Projects/podcast.jpg",
+    image: "Projects/podcast.jpg",
     category: "Podcast",
-    gallery: ["public/Projects/podcast1.jpg", "public/Projects/podcast2.jpg", "public/Projects/podcast3.jpg"],
+    gallery: ["Projects/podcast1.jpg", "Projects/podcast2.jpg", "Projects/podcast3.jpg"],
     videos: ["https://www.youtube.com/watch?v=_Fa6OJ_CoUQ",
           "https://www.youtube.com/watch?v=ZZ4M4r3-CvQ",
         ]
