@@ -19,7 +19,10 @@ const projects = [
       "public/Projects/Backjeep.jpg",
       "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=max&q=80&w=1080"
     ],
-    video: "public/Projects/VideoGameJeep.mp4"
+    videos: [
+      "public/Projects/VideoGameJeep.mp4",
+      "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    ]
   },
   {
     title: "Plataforma Educativa Inteligente",
@@ -27,7 +30,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080",
     category: "IA",
     gallery: ["https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080"],
-    video: ""
+    videos: []
   },
   {
     title: "Prótesis Biónica Accesible",
@@ -35,7 +38,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1694701503673-379c9e0d887e?fit=max&q=80&w=1080",
     category: "Hardware",
     gallery: ["https://images.unsplash.com/photo-1694701503673-379c9e0d887e?fit=max&q=80&w=1080"],
-    video: ""
+    videos: []
   },
   {
     title: "Experiencia AR para Museos",
@@ -43,7 +46,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1758685848208?fit=max&q=80&w=1080",
     category: "AR / VR",
     gallery: ["https://images.unsplash.com/photo-1758685848208?fit=max&q=80&w=1080"],
-    video: ""
+    videos: []
   },
   {
     title: "Robot Autónomo Solar",
@@ -51,7 +54,7 @@ const projects = [
     image: "https://images.unsplash.com/photo-1627667050609-d4ba6483a368?fit=max&q=80&w=1080",
     category: "Hardware",
     gallery: ["https://images.unsplash.com/photo-1627667050609-d4ba6483a368?fit=max&q=80&w=1080"],
-    video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    videos: ["https://www.youtube.com/embed/dQw4w9WgXcQ"]
   },
   {
     title: "Trazabilidad Alimentaria",
@@ -62,7 +65,7 @@ const projects = [
       "https://images.unsplash.com/photo-1728933102332-a4f1a281a621?fit=max&q=80&w=1080",
       "https://images.unsplash.com/photo-1606787366850-de6330128bfc?fit=max&q=80&w=1080"
     ],
-    video: ""
+    videos: []
   },
 ];
 
@@ -78,6 +81,7 @@ export function Projects() {
   const focusRef = useScrollFocusSection("pink");
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
   
   // États de votre version originale
   const [pageStart, setPageStart] = useState(0);
@@ -242,7 +246,10 @@ export function Projects() {
                     key={`${project.title}-${idx}`}
                     className="min-w-[85vw] md:min-w-[45vw] snap-center h-full cursor-pointer"
                     initial={{ opacity: 0, scale: 0.9 }}
-                    onClick={() => setSelectedProject(project)}
+                    onClick={() => {
+                      setSelectedProject(project);
+                      setActiveVideo(project.videos && project.videos.length > 0 ? project.videos[0] : null);
+                    }}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -283,7 +290,10 @@ export function Projects() {
                         className="cursor-pointer"
                         initial={{ opacity: 0, y: 14 }}
                         animate={{ opacity: 1, y: 0 }}
-                        onClick={() => setSelectedProject(project)}
+                        onClick={() => {
+                          setSelectedProject(project);
+                          setActiveVideo(project.videos && project.videos.length > 0 ? project.videos[0] : null);
+                        }}
                         exit={{ opacity: 0, y: -14 }}
                         transition={{ duration: 0.25 }}
                       >
@@ -331,7 +341,10 @@ export function Projects() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
-              onClick={() => setSelectedProject(null)}
+              onClick={() => {
+                setSelectedProject(null);
+                setActiveVideo(null);
+              }}
             >
               <motion.div
                 initial={{ scale: 0.95, opacity: 0 }}
@@ -341,7 +354,10 @@ export function Projects() {
                 className="bg-background w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl border border-border shadow-2xl relative flex flex-col"
               >
                 <button
-                  onClick={() => setSelectedProject(null)}
+                  onClick={() => {
+                    setSelectedProject(null);
+                    setActiveVideo(null);
+                  }}
                   className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition z-10"
                 >
                   <X size={24} />
@@ -363,17 +379,47 @@ export function Projects() {
                     {selectedProject.description}
                   </p>
 
-                  {selectedProject.video && (
+                  {selectedProject.videos && selectedProject.videos.length > 0 && activeVideo && (
                     <div className="space-y-4">
-                      <h3 className="text-2xl font-bold">Video del proyecto</h3>
+                      <h3 className="text-2xl font-bold">Videos del proyecto</h3>
+                      {/* Main Video Player */}
                       <div className="rounded-2xl overflow-hidden aspect-video border border-border bg-black">
                         <iframe
-                          src={selectedProject.video}
+                          src={activeVideo}
                           className="w-full h-full"
                           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                           allowFullScreen
                         />
                       </div>
+                      {/* Video Thumbnails List */}
+                      {selectedProject.videos.length > 1 && (
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+                          {selectedProject.videos.map((vid, idx) => {
+                            const isYoutube = vid.includes("youtube.com") || vid.includes("youtu.be");
+                            let thumbnail;
+
+                            if (isYoutube) {
+                              const videoId = vid.split("/embed/")[1]?.split("?")[0] || vid.split("v=")[1]?.split("&")[0];
+                              thumbnail = (
+                                <img 
+                                  src={`https://img.youtube.com/vi/${videoId}/mqdefault.jpg`} 
+                                  alt={`Video ${idx + 1}`} 
+                                  className="w-full h-full object-cover"
+                                />
+                              );
+                            } else {
+                              const videoSrc = vid.startsWith("public/") ? vid.replace("public/", "/") : vid;
+                              thumbnail = <video src={`${videoSrc}#t=1.0`} className="w-full h-full object-cover" muted preload="metadata" playsInline />;
+                            }
+
+                            return (
+                              <div key={idx} onClick={() => setActiveVideo(vid)} className={`cursor-pointer rounded-xl overflow-hidden border-2 ${activeVideo === vid ? "border-primary" : "border-transparent"} relative aspect-video bg-muted hover:opacity-80 transition-all`}>
+                                {thumbnail}
+                              </div>
+                            );
+                          })}
+                        </div>
+                      )}
                     </div>
                   )}
 
