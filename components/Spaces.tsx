@@ -8,6 +8,44 @@ import { useScrollFocusSection } from "./useScrollFocusSection";
 /* ---------------- DATOS ---------------- */
 const spaces = [
   {
+    id: "ofi_desarrollo",
+    name: "Espacios de trabajo",
+    icon: Laptop,
+    description:
+      "Salas equipadas donde crear y desarrollar proyectos para clientes.",
+    images: [
+      "img/espacio_desarrollo.jpg",
+      "img/desarrollo.jpeg",
+      "img/desarrollo1.jpeg",
+    ],
+    features: [
+      "Mesas de trabajo en equipo",
+      "Pantallas para diseño y programación",
+      "Salas de reuniones cerradas",
+      "Sistemas de videollamada",
+      "Pizarras físicas y digitales",
+      "Espacios para reuniones ágiles"
+    ],
+  },
+  {
+    id: "360",
+    name: "Sala 360",
+    icon: Sprout,
+    description:
+      "Sala de reuniones y videoconferencias con proyección inmersiva 360 para una experiencia envolvente.",
+    images: [
+      "img/sala_360R.jpeg",
+    ],
+    features: [
+      "Sistema de proyección envolvente",
+      "Cámaras y audio para videoconferencia",
+      "Iluminación ambiental regulable",
+      "Mesa central colaborativa",
+      "Control multimedia integrado",
+      "Configuración flexible del espacio"
+    ],
+  },
+  {
     id: "fablab",
     name: "FabLab",
     icon: Wrench,
@@ -62,6 +100,29 @@ const spaces = [
       "Acceso ampliado para estudiantes"
     ],
   },*/
+ 
+  {
+    id: "showrooms",
+    name: "Showrooms",
+    icon: Sparkles,
+    description:
+      "Los espacios que tus amigos no creerán que existen. Sólo si formas parte de Bits & Atoms lo entenderás.",
+    images: [
+      "img/showroom1.jpeg",
+      "img/show.jpg",
+      "img/cafete.jpeg",
+      "img/jeep.jpeg",
+      "img/cotxe.jpeg",
+    ],
+    features: [
+      "Aplicación de IoT",
+      "Pantalla y proyección de gran formato",
+      "Unidad Móvil de producción",
+      "Espacios de networking",
+      "Zona de exposición de proyectos",
+      "Capacidad para eventos y conferencias"
+    ],
+  },
   {
     id: "uni",
     name: "Universidad",
@@ -80,66 +141,6 @@ const spaces = [
       "Infraestructura digital avanzada",
       "Áreas comunes para estudiantes",
       "Actividades formativas y workshops"
-    ],
-  },
-  {
-    id: "ofi_desarrollo",
-    name: "Espacios de trabajo",
-    icon: Laptop,
-    description:
-      "Salas equipadas donde crear y desarrollar proyectos para clientes.",
-    images: [
-      "img/espacio_desarrollo.jpg",
-      "img/desarrollo.jpeg",
-      "img/desarrollo1.jpeg",
-    ],
-    features: [
-      "Mesas de trabajo en equipo",
-      "Pantallas para diseño y programación",
-      "Salas de reuniones cerradas",
-      "Sistemas de videollamada",
-      "Pizarras físicas y digitales",
-      "Espacios para reuniones ágiles"
-    ],
-  },
-  {
-    id: "360",
-    name: "Sala 360",
-    icon: Sprout,
-    description:
-      "Sala de reuniones y videoconferencias con proyección inmersiva 360 para una experiencia envolvente.",
-    images: [
-      "img/sala_360R.jpeg",
-    ],
-    features: [
-      "Sistema de proyección envolvente",
-      "Cámaras y audio para videoconferencia",
-      "Iluminación ambiental regulable",
-      "Mesa central colaborativa",
-      "Control multimedia integrado",
-      "Configuración flexible del espacio"
-    ],
-  },
-  {
-    id: "showrooms",
-    name: "Showrooms",
-    icon: Sparkles,
-    description:
-      "Los espacios que tus amigos no creerán que existen. Sólo si formas parte de Bits & Atoms lo entenderás.",
-    images: [
-      "img/showroom1.jpeg",
-      "img/show.jpg",
-      "img/cafete.jpeg",
-      "img/jeep.jpeg",
-      "img/cotxe.jpeg",
-    ],
-    features: [
-      "Capacidad para eventos y conferencias",
-      "Pantalla y proyección de gran formato",
-      "Sistema de sonido profesional",
-      "Escenario para presentaciones y charlas",
-      "Zona de exposición de proyectos",
-      "Espacios de networking"
     ],
   },
 ];

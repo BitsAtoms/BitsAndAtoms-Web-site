@@ -7,7 +7,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollFocusSection } from "./useScrollFocusSection";
 
 /* ---------------- DATA ---------------- */
-const categories = ["Todos", "IoT", "IA", "Hardware", "AR / VR"];
+const categories = ["Todos", "RV", "Robotica", "Software", "Podcast"];
 
 const projects = [
   {

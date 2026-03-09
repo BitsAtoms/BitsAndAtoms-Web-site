@@ -115,7 +115,7 @@ export function About() {
 
           {/* Texto */}
           <motion.div
-            className="space-y-6 max-w-xl text-justify"
+            className="space-y-6 max-w-xl text-left "
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
@@ -125,22 +125,22 @@ export function About() {
               <span className="text-primary">cobra vida</span>
             </h3>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed hyphens-auto" lang="es">
               Bits and Atoms es un proyecto de Admira nacido desde una visión 
               de tecnología con propósito, pensado para formar, acompañar y crear 
               oportunidades reales para jóvenes con talento. El aprendizaje se basa 
               en la práctica: construir, probar y equivocarse es parte del camino.
             </p>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
+            <p className="text-muted-foreground text-lg leading-relaxed hyphens-auto" lang="es">
               El programa combina inteligencia artificial, IoT y pensamiento 
               creativo para desarrollar proyectos reales desde el primer día, 
               trabajando con retos auténticos, ideas con sentido y crecimiento en equipo.
             </p>
 
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              Un entorno donde la curiosidad y las ganas de aprender marcan 
-              la diferencia, y donde cada proyecto impulsa el desarrollo profesional.
+            <p className="text-muted-foreground text-lg leading-relaxed hyphens-auto" lang="es">
+              Un entorno donde la curiosidad y las ganas de aprender marcan la diferencia,
+              y donde cada proyecto impulsa el desarrollo profesional.
             </p>
           </motion.div>
         </div>
