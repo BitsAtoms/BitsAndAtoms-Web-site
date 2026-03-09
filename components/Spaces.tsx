@@ -329,7 +329,7 @@ export function Spaces() {
               transition={{ duration: 0.4 }}
             >
               {/* Imagen */}
-              <div className="relative h-[550px] rounded-[2rem] overflow-hidden group shadow-2xl border border-border/50">
+              <div className="relative h-[550px] rounded-[2rem] overflow-hidden group shadow-2xl border border-border hover:border-primary/50 transition-all duration-300">
                 <SpaceImageSlideshow images={currentSpace.images} name={currentSpace.name} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               </div>
