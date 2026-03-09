@@ -1,50 +1,68 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, ExternalLink, Youtube } from "lucide-react";
+import { ChevronLeft, ChevronRight, ExternalLink, Youtube, X } from "lucide-react";
 import { FaSpotify } from "react-icons/fa";
 import { Card } from "./ui/card";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollFocusSection } from "./useScrollFocusSection";
 
 /* ---------------- DATA ---------------- */
-const categories = ["Todos", "RV", "Robotica", "Software", "Podcast"];
+const categories = ["Todos", "RV", "Robotica", "Software", "Podcast","Programación", "Impresión 3D"];
 
 const projects = [
   {
-    title: "Sistema de Monitoreo Ambiental",
-    description: "Sensores conectados para analizar variables ambientales.",
+    title: "Simulador de Combate Realidad Virtual & Jeep",
+    description: "Sistema dual de combate: juega en pantalla gigante con un Jeep modificado y pistolas tácticas, o sumérgete totalmente con gafas de realidad virtual.",
     image: "https://images.unsplash.com/photo-1725923727790-15ec49fa4d15?fit=max&q=80&w=1080",
-    category: "IoT",
+    category: "RV",
+    gallery: [
+      "public/Projects/Backjeep.jpg",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?fit=max&q=80&w=1080"
+    ],
+    video: "public/Projects/VideoGameJeep.mp4"
   },
   {
     title: "Plataforma Educativa Inteligente",
     description: "Aprendizaje adaptativo basado en IA.",
     image: "https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080",
     category: "IA",
+    gallery: ["https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080"],
+    video: ""
   },
   {
     title: "Prótesis Biónica Accesible",
     description: "Diseño funcional mediante impresión 3D.",
     image: "https://images.unsplash.com/photo-1694701503673-379c9e0d887e?fit=max&q=80&w=1080",
     category: "Hardware",
+    gallery: ["https://images.unsplash.com/photo-1694701503673-379c9e0d887e?fit=max&q=80&w=1080"],
+    video: ""
   },
   {
     title: "Experiencia AR para Museos",
     description: "Contenido digital integrado en espacios físicos.",
     image: "https://images.unsplash.com/photo-1758685848208?fit=max&q=80&w=1080",
     category: "AR / VR",
+    gallery: ["https://images.unsplash.com/photo-1758685848208?fit=max&q=80&w=1080"],
+    video: ""
   },
   {
     title: "Robot Autónomo Solar",
     description: "Robot para limpieza de paneles solares de forma autónoma.",
     image: "https://images.unsplash.com/photo-1627667050609-d4ba6483a368?fit=max&q=80&w=1080",
     category: "Hardware",
+    gallery: ["https://images.unsplash.com/photo-1627667050609-d4ba6483a368?fit=max&q=80&w=1080"],
+    video: "https://www.youtube.com/embed/dQw4w9WgXcQ"
   },
   {
     title: "Trazabilidad Alimentaria",
     description: "Rastreo del origen y recorrido de productos alimentarios.",
     image: "https://images.unsplash.com/photo-1728933102332-a4f1a281a621?fit=max&q=80&w=1080",
     category: "IoT",
+    gallery: [
+      "https://images.unsplash.com/photo-1728933102332-a4f1a281a621?fit=max&q=80&w=1080",
+      "https://images.unsplash.com/photo-1606787366850-de6330128bfc?fit=max&q=80&w=1080"
+    ],
+    video: ""
   },
 ];
 
@@ -59,6 +77,7 @@ function getVisibleCountFromWidth(width: number) {
 export function Projects() {
   const focusRef = useScrollFocusSection("pink");
   const [activeCategory, setActiveCategory] = useState("Todos");
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   
   // États de votre version originale
   const [pageStart, setPageStart] = useState(0);
@@ -221,8 +240,9 @@ export function Projects() {
                {filtered.map((project, idx) => (
                   <motion.div
                     key={`${project.title}-${idx}`}
-                    className="min-w-[85vw] md:min-w-[45vw] snap-center h-full"
+                    className="min-w-[85vw] md:min-w-[45vw] snap-center h-full cursor-pointer"
                     initial={{ opacity: 0, scale: 0.9 }}
+                    onClick={() => setSelectedProject(project)}
                     animate={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.3 }}
                   >
@@ -260,8 +280,10 @@ export function Projects() {
                     {pageItems.map((project) => (
                       <motion.div
                         key={project._key}
+                        className="cursor-pointer"
                         initial={{ opacity: 0, y: 14 }}
                         animate={{ opacity: 1, y: 0 }}
+                        onClick={() => setSelectedProject(project)}
                         exit={{ opacity: 0, y: -14 }}
                         transition={{ duration: 0.25 }}
                       >
@@ -300,6 +322,82 @@ export function Projects() {
             </button>
           </div>
         </div>
+
+        {/* ================= MODAL PROJET ================= */}
+        <AnimatePresence>
+          {selectedProject && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+              onClick={() => setSelectedProject(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.95, opacity: 0 }}
+                onClick={(e) => e.stopPropagation()}
+                className="bg-background w-full max-w-5xl max-h-[90vh] overflow-y-auto rounded-3xl border border-border shadow-2xl relative flex flex-col"
+              >
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition z-10"
+                >
+                  <X size={24} />
+                </button>
+
+                <div className="relative h-64 md:h-96 flex-shrink-0">
+                  <ImageWithFallback src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background to-transparent" />
+                  <div className="absolute bottom-6 left-6 md:bottom-10 md:left-10">
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-primary text-white mb-3 inline-block">
+                      {selectedProject.category}
+                    </span>
+                    <h2 className="text-3xl md:text-5xl font-black text-foreground">{selectedProject.title}</h2>
+                  </div>
+                </div>
+
+                <div className="p-6 md:p-10 space-y-8">
+                  <p className="text-lg text-muted-foreground leading-relaxed">
+                    {selectedProject.description}
+                  </p>
+
+                  {selectedProject.video && (
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold">Video del proyecto</h3>
+                      <div className="rounded-2xl overflow-hidden aspect-video border border-border bg-black">
+                        <iframe
+                          src={selectedProject.video}
+                          className="w-full h-full"
+                          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                          allowFullScreen
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  {selectedProject.gallery && selectedProject.gallery.length > 0 && (
+                    <div className="space-y-4">
+                      <h3 className="text-2xl font-bold">Galería</h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {selectedProject.gallery.map((img, idx) => (
+                          <div key={idx} className="rounded-xl overflow-hidden h-64 border border-border">
+                            <ImageWithFallback
+                              src={img}
+                              alt={`Galería ${idx}`}
+                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </section>
   );
