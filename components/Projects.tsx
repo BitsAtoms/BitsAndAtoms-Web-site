@@ -37,8 +37,8 @@ const projects = [
     ]
   },
   {
-    title: "Prótesis Biónica Accesible",
-    description: "Diseño funcional mediante impresión 3D.",
+    title: "Podcast",
+    description:" Una serie de encuentros donde exploramos diversos temas de tecnología, innovación y ciencia. Cada episodio analiza un desafío diferente del mundo digital y físico.",
     image: "public/Projects/podcast.jpg",
     category: "Podcast",
     gallery: ["public/Projects/podcast1.jpg", "public/Projects/podcast2.jpg"],
