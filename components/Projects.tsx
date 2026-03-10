@@ -26,7 +26,7 @@ const projects = [
   },
   {
     title: "Sistemas Robóticos Autónomos",
-    description: "Desarrollo y programación de robots diseñados para tareas específicas, combinando hardware avanzado con algoritmos de control inteligente.",
+    description: "Creación de robots y sistemas inteligentes que combinan hardware, programación y automatización.",
     image: "https://imgs.search.brave.com/kF6pI7h-BZRE6vxI8GxgS_PcUcoidmGeHcWWqFMGl80/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTIy/MDU5MTgyMS9lcy9m/b3RvL3JvYm90LXkt/bWFuby1odW1hbmEt/Y29uLWVuZ3JhbmFq/ZXMuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPW02MVZUYkJM/bFhISGdkbVVEd0Y1/SXQtTHVwOXBhTmRU/MGM2X1I0dXJHNEE9",
     category: "Robotica",
     gallery: ["https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080"],
@@ -37,7 +37,7 @@ const projects = [
   },
   {
     title: "Podcast",
-    description:" Una serie de encuentros donde exploramos diversos temas de tecnología, innovación y ciencia. Cada episodio analiza un desafío diferente del mundo digital y físico.",
+    description:"Conversaciones y contenido sonoro para compartir ideas, proyectos y aprendizaje.",
     image: "Projects/podcast.jpg",
     category: "Podcast",
     gallery: {
@@ -284,40 +284,7 @@ export function Projects() {
           </h2>
         </div>
 
-        {/* PODCAST*/}
-        <motion.div
-          className="grid lg:grid-cols-2 gap-16 items-center"
-          initial={{ opacity: 0, y: 16 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
-          <div className="relative h-[360px] rounded-3xl overflow-hidden border border-border">
-            <ImageWithFallback
-              src="img/podcast_1.jpeg"
-              alt="Bits & Atoms Podcast"
-              className="w-full h-full object-cover"
-            />
-          </div>
-          <div className="max-w-xl">
-            <h3 className="text-3xl font-black mb-4 text-foreground">
-              Bits & Atoms{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-                Podcast
-              </span>
-            </h3>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-              Apostamos por el debate, la creatividad y las conversaciones honestas
-              sobre tecnología, educación y futuro.
-            </p>
-            <div className="flex flex-wrap gap-6">
-              <a href="https://www.youtube.com/@BitsAtomsAdmira" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                <Youtube size={22} />
-                <span className="text-sm font-medium">YouTube</span>
-                <ExternalLink size={14} />
-              </a>
-            </div>
-          </div>
-        </motion.div>
+        
 
         {/* ================= SECTION PROJETS ================= */}
         <div className="space-y-10">

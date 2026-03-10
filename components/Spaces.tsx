@@ -15,8 +15,7 @@ const spaces = [
       "Salas equipadas donde crear y desarrollar proyectos para clientes.",
     images: [
       "img/espacio_desarrollo.jpg",
-      "img/desarrollo.jpeg",
-      "img/desarrollo1.jpeg",
+      
     ],
     features: [
       "Mesas de trabajo en equipo",
@@ -131,6 +130,8 @@ const spaces = [
       "Campus académico para que los alumnos socialicen. Las mejores ideas surgen aquí.",
     images: [
       "img/uni2.jpg",
+      "img/desarrollo.jpeg",
+      "img/desarrollo1.jpeg",
       "img/uni.jpg",
       
     ],
