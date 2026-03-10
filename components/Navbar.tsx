@@ -21,9 +21,9 @@ export function Navbar() {
 
   const navItems = [
     { name: "Quiénes somos", href: "#about" },
+    { name: "Proyectos", href: "#projects" },
     { name: "Mentores", href: "#mentors" },
     { name: "Espacios", href: "#spaces" },
-    { name: "Proyectos", href: "#projects" },
     { name: "Contacto", href: "#contact" },
   ];
 
