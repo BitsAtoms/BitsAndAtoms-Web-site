@@ -7,21 +7,22 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollFocusSection } from "./useScrollFocusSection";
 
 /* ---------------- DATA ---------------- */
-const categories = ["Todos", "Programación", "Robotica", "Video Juegos","RV(Realidad Virtual)", "Impresión 3D","Realización","Podcast"];
+const categories = ["Todos", "Programación", "Robotica", "Videojuegos","RV (Realidad Virtual)", "Impresión 3D","Realización","Podcast"];
 
 const projects = [
   {
-    title: "Simulador de Combate Realidad Virtual & Jeep",
-    description: "Sistema dual de combate: juega en pantalla gigante con un Jeep modificado y pistolas tácticas, o sumérgete totalmente con gafas de realidad virtual.",
-    image: "https://imgs.search.brave.com/GRCEKmrBM4kwEOQlYKSay6obgP47HpzmlL_kjqb6jfE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudmVjdGVlenku/Y29tL3N5c3RlbS9y/ZXNvdXJjZXMvdGh1/bWJuYWlscy8wMTUv/ODk5LzE0NS9zbWFs/bC9tYW4tZXhwZXJp/ZW5jaW5nLXZpcnR1/YWwtcmVhbGl0eS13/ZWFyaW5nLXZpcnR1/YWwtcmVhbGl0eS1n/bGFzc2VzLXBob3Rv/LmpwZw",
-    category: "RV",
+    title: "Video Juegos",
+    description: "Diseño y desarrollo de videojuegos interactivos combinando programación, arte y narrativa.",
+    image: "img/jeep.jpeg",
+    category: "Videojuegos",
     gallery: [
-      "Projects/Backjeep.jpg",
+      "Projects/Vjuegos/Backjeep.jpg",
       
     ],
     videos: [
-      "Projects/VideoGameJeep.mp4",
-      "Projects/Video_gafasRv.mp4"
+      "Projects/Vjuegos/VideoGameJeep.mp4",
+      "Projects/Vjuegos/videoExpli.MP4",
+      
     ]
   },
   {
@@ -37,21 +38,44 @@ const projects = [
   },
   {
     title: "Podcast",
-    description:"Conversaciones y contenido sonoro para compartir ideas, proyectos y aprendizaje.",
-    image: "Projects/podcast.jpg",
+    description: (
+      <span>
+        Conversaciones y contenido sonoro para compartir ideas, proyectos y aprendizaje.
+        <br />
+        <br />
+        <a
+          href="https://www.youtube.com/@BitsAtomsAdmira"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-blue-500 hover:text-red-600 font-bold transition-colors"
+        >
+          <Youtube size={20} />
+          Si quieres ver más, suscríbete a nuestro canal de YouTube
+        </a>
+      </span>
+    ),
+    image: "Projects/podcast/pod.jpg",
     category: "Podcast",
     gallery: {
-      "BitsandAtoms": [
-        "img/espacio_desarrollo.jpg",
-        "img/desarrollo.jpeg",
-        "img/sala_360R.jpeg",
+      "Bits&Atoms": [
+        
+        "Projects/podcast/podcast3.jpg",
+        "Projects/podcast/podcast1.jpg",
+        "Projects/podcast/podcastElena.jpg",
+        "Projects/podcast/pddcast.jpg",
+        "Projects/podcast/podcastAg.jpg",
+        
       ],
       "On the Cloud": [
-        "https://images.unsplash.com/photo-1725923727790-15ec49fa4d15?fit=max&q=80&w=1080",
+        "Projects/podcast/on the cloud 1.jpg",
+        "Projects/podcast/On the cloud2.jpg",
+        "Projects/podcast/on the cloud 3.jpg",
+        "Projects/podcast/on the cloud 4.jpg",
+        "Projects/podcast/snvsjr.jpg",
       ],
-      "senior vs junior": [
-        "Mentores/Silva_Carlos.png",
-        "Mentores/Marc_Segarra.png",
+      "Senior vs Junior": [
+         "Projects/podcast/PodcastBA2.jpg",
+        "Projects/podcast/Podcast4.jpg"
       ]
     },
     videos: ["https://www.youtube.com/watch?v=_Fa6OJ_CoUQ",
@@ -59,21 +83,30 @@ const projects = [
         ]
   },
   {
-    title: "Experiencia AR para Museos",
-    description: "Contenido digital integrado en espacios físicos.",
-    image: "https://images.unsplash.com/photo-1758685848208?fit=max&q=80&w=1080",
-    category: "AR / VR",
-    gallery: ["https://images.unsplash.com/photo-1758685848208?fit=max&q=80&w=1080"],
+    title: "Programación",
+    description: "Desarrollo de software, aplicaciones y sistemas a través de código y pensamiento lógico.",
+    image: "Projects/programacion/programacion1.PNG",
+    category: "Programación",
+    gallery: ["Projects/programacion/programacion.jpg",
+              , 
+    ],
     videos: [
     ]
   },
   {
-    title: "Robot Autónomo Solar",
-    description: "Robot para limpieza de paneles solares de forma autónoma.",
-    image: "https://images.unsplash.com/photo-1627667050609-d4ba6483a368?fit=max&q=80&w=1080",
-    category: "Hardware",
-    gallery: ["https://images.unsplash.com/photo-1627667050609-d4ba6483a368?fit=max&q=80&w=1080"],
-    videos: ["https://www.youtube.com/embed/dQw4w9WgXcQ"]
+    title: "Realización",
+    description: "Producción audiovisual de proyectos tecnológicos, desde la grabación hasta la edición final.",
+    image: "Projects/Realizacion/PodcastBA1.jpg",
+    category: "Realización",
+    gallery: ["Projects/Realizacion/pdcst.jpg",
+              "Projects/Realizacion/PodcastBA.jpg",
+              "Projects/Realizacion/podcast2.jpg",
+              "Projects/Realizacion/podcast.jpg",
+              "Projects/Realizacion/realizacion.jpg",
+              "Projects/Realizacion/realizacion1.jpg",
+              
+    ],
+    videos: []
   },
   {
     title: "Trazabilidad Alimentaria",
