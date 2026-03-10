@@ -125,20 +125,20 @@ export function About() {
               <span className="text-primary">cobra vida</span>
             </h3>
 
-            <p className="text-muted-foreground text-lg leading-relaxed hyphens-auto" lang="es">
+            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto" lang="es">
               Bits and Atoms es un proyecto de Admira nacido desde una visión 
               de tecnología con propósito, pensado para formar, acompañar y crear 
               oportunidades reales para jóvenes con talento. El aprendizaje se basa 
               en la práctica: construir, probar y equivocarse es parte del camino.
             </p>
 
-            <p className="text-muted-foreground text-lg leading-relaxed hyphens-auto" lang="es">
+            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto" lang="es">
               El programa combina inteligencia artificial, IoT y pensamiento 
               creativo para desarrollar proyectos reales desde el primer día, 
               trabajando con retos auténticos, ideas con sentido y crecimiento en equipo.
             </p>
 
-            <p className="text-muted-foreground text-lg leading-relaxed hyphens-auto" lang="es">
+            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto" lang="es">
               Un entorno donde la curiosidad y las ganas de aprender marcan la diferencia,
               y donde cada proyecto impulsa el desarrollo profesional.
             </p>
@@ -172,7 +172,7 @@ export function About() {
                   <h4 className="text-xl font-bold mb-4 text-foreground">
                     {program.title}
                   </h4>
-                  <p className="text-muted-foreground text-lg leading-relaxed text-justify">
+                  <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto" lang="es">
                     {program.description}
                   </p>
                 </Card>
@@ -198,7 +198,7 @@ export function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
-                className="p-6 rounded-3xl border border-border bg-card text-justify"
+                className="p-6 rounded-3xl border border-border bg-card text-center flex flex-col justify-center items-center"
               >
                 <div className="mb-4 inline-flex p-3 rounded-xl bg-primary/10 text-primary">
                   <value.icon size={24} />

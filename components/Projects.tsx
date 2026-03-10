@@ -7,7 +7,7 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollFocusSection } from "./useScrollFocusSection";
 
 /* ---------------- DATA ---------------- */
-const categories = ["Todos", "RV", "Robotica", "Software", "Podcast","Programación", "Impresión 3D"];
+const categories = ["Todos", "Programación", "Robotica", "Video Juegos","RV(Realidad Virtual)", "Impresión 3D","Realización","Podcast"];
 
 const projects = [
   {
@@ -40,7 +40,20 @@ const projects = [
     description:" Una serie de encuentros donde exploramos diversos temas de tecnología, innovación y ciencia. Cada episodio analiza un desafío diferente del mundo digital y físico.",
     image: "Projects/podcast.jpg",
     category: "Podcast",
-    gallery: ["Projects/podcast1.jpg", "Projects/podcast2.jpg", "Projects/podcast3.jpg"],
+    gallery: {
+      "BitsandAtoms": [
+        "img/espacio_desarrollo.jpg",
+        "img/desarrollo.jpeg",
+        "img/sala_360R.jpeg",
+      ],
+      "On the Cloud": [
+        "https://images.unsplash.com/photo-1725923727790-15ec49fa4d15?fit=max&q=80&w=1080",
+      ],
+      "senior vs junior": [
+        "Mentores/Silva_Carlos.png",
+        "Mentores/Marc_Segarra.png",
+      ]
+    },
     videos: ["https://www.youtube.com/watch?v=_Fa6OJ_CoUQ",
           "https://www.youtube.com/watch?v=ZZ4M4r3-CvQ",
         ]
@@ -108,6 +121,79 @@ const getEmbedUrl = (url: string | null): string => {
 
   // For local videos or other URLs
   return url;
+};
+
+const ProjectGallery = ({ gallery }: { gallery: string[] | { [category: string]: string[] } }) => {
+  const isCategorized = typeof gallery === 'object' && !Array.isArray(gallery) && gallery !== null;
+
+  if (!isCategorized) {
+    // Fallback for non-categorized galleries (string[])
+    return (
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {(gallery as string[]).map((img, idx) => (
+          <div key={idx} className="rounded-xl overflow-hidden h-64 border border-border">
+            <ImageWithFallback
+              src={img}
+              alt={`Galería ${idx}`}
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+            />
+          </div>
+        ))}
+      </div>
+    );
+  }
+
+  // Logic for categorized galleries
+  const categories = Object.keys(gallery);
+  const [activeCategory, setActiveCategory] = useState(categories[0] || null);
+
+  if (!activeCategory) return null;
+
+  const images = gallery[activeCategory] || [];
+
+  return (
+    <div className="space-y-6">
+      {/* Category Filters */}
+      <div className="flex gap-3 flex-wrap">
+        {categories.map((cat) => {
+          const active = activeCategory === cat;
+          return (
+            <button
+              key={cat}
+              onClick={() => setActiveCategory(cat)}
+              className={`px-5 py-2 rounded-full text-sm font-bold border transition
+                ${active ? "bg-primary text-white border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"}`}
+            >
+              {cat}
+            </button>
+          );
+        })}
+      </div>
+
+      {/* Image Grid */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <AnimatePresence>
+          {images.map((img, idx) => (
+            <motion.div
+              key={img} // Use image src as key for better animation
+              layout
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-xl overflow-hidden h-64 border border-border"
+            >
+              <ImageWithFallback
+                src={img}
+                alt={`Galería ${idx}`}
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </div>
+    </div>
+  );
 };
 
 export function Projects() {
@@ -224,11 +310,6 @@ export function Projects() {
               sobre tecnología, educación y futuro.
             </p>
             <div className="flex flex-wrap gap-6">
-              <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-                <FaSpotify size={22} />
-                <span className="text-sm font-medium">Spotify</span>
-                <ExternalLink size={14} />
-              </a>
               <a href="https://www.youtube.com/@BitsAtomsAdmira" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                 <Youtube size={22} />
                 <span className="text-sm font-medium">YouTube</span>
@@ -456,20 +537,10 @@ export function Projects() {
                     </div>
                   )}
 
-                  {selectedProject.gallery && selectedProject.gallery.length > 0 && (
+                  {selectedProject.gallery && (Array.isArray(selectedProject.gallery) ? selectedProject.gallery.length > 0 : Object.keys(selectedProject.gallery).length > 0) && (
                     <div className="space-y-4">
                       <h3 className="text-2xl font-bold">Galería</h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {selectedProject.gallery.map((img, idx) => (
-                          <div key={idx} className="rounded-xl overflow-hidden h-64 border border-border">
-                            <ImageWithFallback
-                              src={img}
-                              alt={`Galería ${idx}`}
-                              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
-                            />
-                          </div>
-                        ))}
-                      </div>
+                      <ProjectGallery gallery={selectedProject.gallery} />
                     </div>
                   )}
                 </div>
