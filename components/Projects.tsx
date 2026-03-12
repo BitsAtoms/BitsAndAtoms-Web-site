@@ -28,12 +28,15 @@ const projects = [
   {
     title: "Sistemas Robóticos Autónomos",
     description: "Creación de robots y sistemas inteligentes que combinan hardware, programación y automatización.",
-    image: "https://imgs.search.brave.com/kF6pI7h-BZRE6vxI8GxgS_PcUcoidmGeHcWWqFMGl80/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTIy/MDU5MTgyMS9lcy9m/b3RvL3JvYm90LXkt/bWFuby1odW1hbmEt/Y29uLWVuZ3JhbmFq/ZXMuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPW02MVZUYkJM/bFhISGdkbVVEd0Y1/SXQtTHVwOXBhTmRU/MGM2X1I0dXJHNEE9",
+    image: "Projects/Robotica/Robot.jpg",
     category: "Robotica",
-    gallery: ["https://images.unsplash.com/photo-1563394867331-e687a36112fd?fit=max&q=80&w=1080"],
-    videos: ["Projects/perroRobot.mp4",
+    gallery: ["Projects/Robotica/brazos.jpg",
+            "Projects/Robotica/Robot.jpg",
+    ],
+    videos: ["Projects/Robotica/perroRobot.mp4",
             "https://www.youtube.com/shorts/jaiPjj3FrEI",
-            "https://www.youtube.com/shorts/v-cNINzUhJ8"
+            "https://www.youtube.com/shorts/v-cNINzUhJ8",
+            "Projects/Robotica/robotDance.mp4",
     ]
   },
   {
@@ -54,7 +57,7 @@ const projects = [
         </a>
       </span>
     ),
-    image: "Projects/podcast/pod.jpg",
+    image: "Projects/podcast/podcastAg.jpg",
     category: "Podcast",
     gallery: {
       "Bits&Atoms": [
@@ -104,18 +107,22 @@ const projects = [
               "Projects/Realizacion/realizacion1.jpg",
               
     ],
-    videos: []
+    videos: ["Projects/Realizacion/realizacionVideoPol.mp4",]
   },
   {
-    title: "Trazabilidad Alimentaria",
-    description: "Rastreo del origen y recorrido de productos alimentarios.",
-    image: "https://images.unsplash.com/photo-1728933102332-a4f1a281a621?fit=max&q=80&w=1080",
-    category: "IoT",
+    title: "Impresión 3D",
+    description: "Diseño y fabricación de objetos físicos a partir de modelos digitales mediante impresión 3D.",
+    image: "https://imgs.search.brave.com/IAkO1_8GYsSreEJ2qA6nl6iwxKvBHZrGOVY4E-Y7lA0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTM0/NDIzNzc1L2VzL2Zv/dG8vMy1kLWltcHJl/c2klQzMlQjNuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1f/aF9HS1NvcGtIRFBX/Zi04TU9MV0hjVTlY/cnh1MFE4RDJncEg2/Ty1mVGlnPQ",
+    category: "Impresión 3D",
     gallery: [
-      "https://images.unsplash.com/photo-1728933102332-a4f1a281a621?fit=max&q=80&w=1080",
-      "https://images.unsplash.com/photo-1606787366850-de6330128bfc?fit=max&q=80&w=1080"
+      "Projects/Impresion3D/impresion3d.jpg",
+      "Projects/Impresion3D/PodcastBA3.jpg",
     ],
-    videos: []
+    videos: [
+      "Projects/Impresion3D/enDirecto.mp4",
+      "Projects/Impresion3D/hanna3D.mp4"
+            
+    ]
   },
 ];
 
@@ -444,11 +451,6 @@ export function Projects() {
             </div>
           )}
 
-          <div className="text-center pt-8">
-            <button className="text-sm font-bold tracking-wide uppercase text-muted-foreground hover:text-foreground transition-colors">
-              Ver todos los proyectos →
-            </button>
-          </div>
         </div>
 
         {/* ================= MODAL PROJET ================= */}
