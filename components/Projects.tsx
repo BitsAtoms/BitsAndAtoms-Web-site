@@ -107,10 +107,10 @@ const projects = [
       </span>
     ),
     
-    image: "Projects/podcast/podcastAg.jpg",
+    image: "Projects/podcast/podcast1.jpg",
     category: "Podcast",
     gallery: {
-      "Bits&Atoms": [
+      "BITS&ATOMS": [
         
         "Projects/podcast/podcast3.jpg",
         "Projects/podcast/podcast1.jpg",
@@ -120,13 +120,13 @@ const projects = [
         "Projects/podcast/pdcs.PNG",
         
       ],
-      "On the Cloud": [
+      "ON THE CLOUD": [
         "Projects/podcast/on the cloud 1.jpg",
         "Projects/podcast/on the cloud 4.jpg",
         "Projects/podcast/snvsjr.jpg",
         "Projects/podcast/on the cloud 5.png",
       ],
-      "Senior vs Junior": [
+      "SENIOR vs JUNIOR": [
          "Projects/podcast/PodcastBA2.jpg",
           "Projects/Realizacion/podcast.jpg",
       ]
