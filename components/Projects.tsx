@@ -68,14 +68,12 @@ const projects = [
       ],
       "On the Cloud": [
         "Projects/podcast/on the cloud 1.jpg",
-        "Projects/podcast/On the cloud2.jpg",
-        "Projects/podcast/on the cloud 3.jpg",
         "Projects/podcast/on the cloud 4.jpg",
         "Projects/podcast/snvsjr.jpg",
+        "Projects/podcast/on the cloud 5.png",
       ],
       "Senior vs Junior": [
          "Projects/podcast/PodcastBA2.jpg",
-        "Projects/podcast/Podcast4.jpg"
       ]
     },
     videos: ["https://www.youtube.com/watch?v=_Fa6OJ_CoUQ",
@@ -156,15 +154,16 @@ const getEmbedUrl = (url: string | null): string => {
   return url;
 };
 
-const ProjectGallery = ({ gallery }: { gallery: string[] | { [category: string]: string[] } }) => {
+const ProjectGallery = ({ gallery, onImageClick }: { gallery: string[] | { [category: string]: string[] }, onImageClick?: (images: string[], index: number) => void }) => {
   const isCategorized = typeof gallery === 'object' && !Array.isArray(gallery) && gallery !== null;
 
   if (!isCategorized) {
     // Fallback for non-categorized galleries (string[])
+    const images = (gallery as string[]).filter(img => img);
     return (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        {(gallery as string[]).map((img, idx) => (
-          <div key={idx} className="rounded-xl overflow-hidden h-64 border border-border">
+        {images.map((img, idx) => (
+          <div key={idx} className={`rounded-xl overflow-hidden h-64 border border-border ${onImageClick ? 'cursor-pointer' : ''}`} onClick={onImageClick ? () => onImageClick(images, idx) : undefined}>
             <ImageWithFallback
               src={img}
               alt={`Galería ${idx}`}
@@ -182,7 +181,7 @@ const ProjectGallery = ({ gallery }: { gallery: string[] | { [category: string]:
 
   if (!activeCategory) return null;
 
-  const images = gallery[activeCategory] || [];
+  const images = (gallery[activeCategory] || []).filter(img => img);
 
   return (
     <div className="space-y-6">
@@ -193,7 +192,7 @@ const ProjectGallery = ({ gallery }: { gallery: string[] | { [category: string]:
           return (
             <button
               key={cat}
-              onClick={() => setActiveCategory(cat)}
+              onClick={(e) => { e.stopPropagation(); setActiveCategory(cat); }}
               className={`px-5 py-2 rounded-full text-sm font-bold border transition
                 ${active ? "bg-primary text-white border-primary" : "bg-card text-muted-foreground border-border hover:text-foreground"}`}
             >
@@ -214,8 +213,8 @@ const ProjectGallery = ({ gallery }: { gallery: string[] | { [category: string]:
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
               transition={{ duration: 0.3 }}
-              className="rounded-xl overflow-hidden h-64 border border-border"
-            >
+              className={`rounded-xl overflow-hidden h-64 border border-border ${onImageClick ? 'cursor-pointer' : ''}`}
+              onClick={onImageClick ? () => onImageClick(images, idx) : undefined}>
               <ImageWithFallback
                 src={img}
                 alt={`Galería ${idx}`}
@@ -234,6 +233,7 @@ export function Projects() {
   const [activeCategory, setActiveCategory] = useState("Todos");
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
   const [activeVideo, setActiveVideo] = useState<string | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<{ images: string[]; index: number } | null>(null);
   
   // États de votre version originale
   const [pageStart, setPageStart] = useState(0);
@@ -285,6 +285,10 @@ export function Projects() {
       return { ...filtered[idx], _key: `${activeCategory}-${idx}-${pageStart}` };
     });
   }, [filtered, total, showCount, pageStart, activeCategory]);
+
+  const handleImageClick = (images: string[], index: number) => {
+    setLightboxImage({ images, index });
+  };
 
   return (
     <section
@@ -540,11 +544,61 @@ export function Projects() {
                   {selectedProject.gallery && (Array.isArray(selectedProject.gallery) ? selectedProject.gallery.length > 0 : Object.keys(selectedProject.gallery).length > 0) && (
                     <div className="space-y-4">
                       <h3 className="text-2xl font-bold">Galería</h3>
-                      <ProjectGallery gallery={selectedProject.gallery} />
+                      <ProjectGallery gallery={selectedProject.gallery} onImageClick={!isMobile ? handleImageClick : undefined} />
                     </div>
                   )}
                 </div>
               </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <AnimatePresence>
+          {lightboxImage && (
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              className="fixed inset-0 z-[70] flex items-center justify-center p-4 bg-black/90 backdrop-blur-sm"
+              onClick={() => setLightboxImage(null)}
+            >
+              <motion.div
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                exit={{ scale: 0.9, opacity: 0 }}
+                className="relative w-full h-full max-w-6xl max-h-[90vh]"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <AnimatePresence mode="wait">
+                  <motion.img
+                    key={lightboxImage.index}
+                    src={lightboxImage.images[lightboxImage.index]}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    transition={{ duration: 0.2 }}
+                    className="w-full h-full object-contain"
+                  />
+                </AnimatePresence>
+              </motion.div>
+
+              <button
+                onClick={() => setLightboxImage(null)}
+                className="absolute top-4 right-4 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition z-20"
+              >
+                <X size={28} />
+              </button>
+
+              {lightboxImage.images.length > 1 && (
+                <>
+                  <button onClick={(e) => { e.stopPropagation(); setLightboxImage(prev => prev && { ...prev, index: (prev.index - 1 + prev.images.length) % prev.images.length }); }} className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition z-20">
+                    <ChevronLeft size={32} />
+                  </button>
+                  <button onClick={(e) => { e.stopPropagation(); setLightboxImage(prev => prev && { ...prev, index: (prev.index + 1) % prev.images.length }); }} className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 p-3 rounded-full bg-black/50 text-white hover:bg-black/70 transition z-20">
+                    <ChevronRight size={32} />
+                  </button>
+                </>
+              )}
             </motion.div>
           )}
         </AnimatePresence>

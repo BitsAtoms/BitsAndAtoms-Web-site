@@ -15,6 +15,7 @@ const spaces = [
       "Salas equipadas donde crear y desarrollar proyectos para clientes.",
     images: [
       "img/espacio_desarrollo.jpg",
+      "Projects/programacion/programacion1.PNG"
       
     ],
     features: [
