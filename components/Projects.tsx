@@ -313,20 +313,26 @@ export function Projects() {
 
   const next = () => {
     if (!canNavigate) return;
-    setPageStart((prev) => (prev + showCount) % total);
+    setPageStart((prev) => {
+      const nextIdx = prev + showCount;
+      return nextIdx >= total ? 0 : nextIdx;
+    });
   };
 
   const prev = () => {
     if (!canNavigate) return;
-    setPageStart((prev) => (prev - showCount + total) % total);
+    setPageStart((prev) => {
+      const prevIdx = prev - showCount;
+      return prevIdx < 0 ? Math.floor((total - 1) / showCount) * showCount : prevIdx;
+    });
   };
 
   const pageItems = useMemo(() => {
     if (total === 0) return [];
-    return Array.from({ length: showCount }).map((_, i) => {
-      const idx = (pageStart + i) % total;
-      return { ...filtered[idx], _key: `${activeCategory}-${idx}-${pageStart}` };
-    });
+    return filtered.slice(pageStart, pageStart + showCount).map((project, i) => ({
+      ...project,
+      _key: `${activeCategory}-${pageStart + i}-${pageStart}`,
+    }));
   }, [filtered, total, showCount, pageStart, activeCategory]);
 
   const handleImageClick = (images: string[], index: number) => {
