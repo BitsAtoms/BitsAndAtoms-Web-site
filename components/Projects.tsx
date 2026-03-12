@@ -7,11 +7,61 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { useScrollFocusSection } from "./useScrollFocusSection";
 
 /* ---------------- DATA ---------------- */
-const categories = ["Todos", "Programación", "Robotica", "Videojuegos","RV (Realidad Virtual)", "Impresión 3D","Realización","Podcast"];
+const categories = ["Todos", "Programación", "Robotica","Impresión 3D", "Videojuegos","RV (Realidad Virtual)", "Realización","Podcast"];
 
 const projects = [
   {
-    title: "Video Juegos",
+    title: "Programación",
+    description: "Desarrollo de software, aplicaciones y sistemas a través de código y pensamiento lógico.",
+    image: "Projects/programacion/programacion1.PNG",
+    category: "Programación",
+    gallery: ["Projects/programacion/programacion.jpg",
+              "Projects/programacion/IOT.PNG",
+              "Projects/programacion/matProg.PNG",
+              "Projects/programacion/TomPro.PNG",
+              "Projects/programacion/JordiPro.PNG",
+              "Projects/programacion/Mano.PNG",
+              
+    ],
+    videos: [
+    ]
+  },
+  
+  {
+    title: "Sistemas Robóticos Autónomos",
+    description: "Creación de robots y sistemas inteligentes que combinan hardware, programación y automatización.",
+    image: "Projects/Robotica/Robot.jpg",
+    category: "Robotica",
+    gallery: ["Projects/Robotica/brazos.jpg",
+            "Projects/Robotica/Robot.jpg",
+            "Projects/Robotica/brazo.PNG",
+            "Projects/Robotica/perroRBT.PNG",
+    ],
+    videos: ["Projects/Robotica/perroRobot.mp4",
+            "https://www.youtube.com/shorts/jaiPjj3FrEI",
+            "https://www.youtube.com/shorts/v-cNINzUhJ8",
+            "Projects/Robotica/robotDance.mp4",
+            "Projects/Robotica/camisetaRobot.mp4",
+    ]
+  },
+  {
+    title: "Impresión 3D",
+    description: "Diseño y fabricación de objetos físicos a partir de modelos digitales mediante impresión 3D.",
+    image: "Projects/Impresion3D/hanna migflag.png",
+    category: "Impresión 3D",
+    gallery: [
+      "Projects/Impresion3D/impresion3d.jpg",
+      "Projects/Impresion3D/PodcastBA3.jpg",
+      "Projects/Impresion3D/hanna migflag.png"
+    ],
+    videos: [
+      "Projects/Impresion3D/enDirecto.mp4",
+      "Projects/Impresion3D/hanna3D.mp4"
+            
+    ]
+  },
+  {
+    title: "VideoJuegos",
     description: "Diseño y desarrollo de videojuegos interactivos combinando programación, arte y narrativa.",
     image: "img/jeep.jpeg",
     category: "Videojuegos",
@@ -25,20 +75,19 @@ const projects = [
       
     ]
   },
-  {
-    title: "Sistemas Robóticos Autónomos",
-    description: "Creación de robots y sistemas inteligentes que combinan hardware, programación y automatización.",
-    image: "Projects/Robotica/Robot.jpg",
-    category: "Robotica",
-    gallery: ["Projects/Robotica/brazos.jpg",
-            "Projects/Robotica/Robot.jpg",
-    ],
-    videos: ["Projects/Robotica/perroRobot.mp4",
-            "https://www.youtube.com/shorts/jaiPjj3FrEI",
-            "https://www.youtube.com/shorts/v-cNINzUhJ8",
-            "Projects/Robotica/robotDance.mp4",
+{
+    title: "RV (Realidad Virtual)",
+    description: "Experiencias inmersivas en realidad virtual que exploran nuevas formas de interacción digital.",
+    image: "Projects/RV/ImgRV.jpg",
+    category: "RV (Realidad Virtual)",
+    gallery: [
+      "Projects/RV/ImgRV.jpg",    ],
+    videos: [
+      "Projects/RV/Video_gafasRv.mp4",
+      
     ]
   },
+
   {
     title: "Podcast",
     description: (
@@ -57,6 +106,7 @@ const projects = [
         </a>
       </span>
     ),
+    
     image: "Projects/podcast/podcastAg.jpg",
     category: "Podcast",
     gallery: {
@@ -67,6 +117,7 @@ const projects = [
         "Projects/podcast/podcastElena.jpg",
         "Projects/podcast/pddcast.jpg",
         "Projects/podcast/podcastAg.jpg",
+        "Projects/podcast/pdcs.PNG",
         
       ],
       "On the Cloud": [
@@ -77,53 +128,38 @@ const projects = [
       ],
       "Senior vs Junior": [
          "Projects/podcast/PodcastBA2.jpg",
+          "Projects/Realizacion/podcast.jpg",
       ]
     },
     videos: ["https://www.youtube.com/watch?v=_Fa6OJ_CoUQ",
           "https://www.youtube.com/watch?v=ZZ4M4r3-CvQ",
+          "https://www.youtube.com/watch?v=aFGzTiHh0Ho&t=2s",
         ]
   },
-  {
-    title: "Programación",
-    description: "Desarrollo de software, aplicaciones y sistemas a través de código y pensamiento lógico.",
-    image: "Projects/programacion/programacion1.PNG",
-    category: "Programación",
-    gallery: ["Projects/programacion/programacion.jpg",
-              , 
-    ],
-    videos: [
-    ]
-  },
+  
   {
     title: "Realización",
     description: "Producción audiovisual de proyectos tecnológicos, desde la grabación hasta la edición final.",
-    image: "Projects/Realizacion/PodcastBA1.jpg",
+    image: "Projects/Realizacion/podcast2.jpg",
     category: "Realización",
     gallery: ["Projects/Realizacion/pdcst.jpg",
               "Projects/Realizacion/PodcastBA.jpg",
               "Projects/Realizacion/podcast2.jpg",
-              "Projects/Realizacion/podcast.jpg",
               "Projects/Realizacion/realizacion.jpg",
               "Projects/Realizacion/realizacion1.jpg",
+              "Projects/Realizacion/juanAnt.jpg",
+              "Projects/Realizacion/reali1.PNG",
+              "Projects/Realizacion/reali2.PNG",
+              "Projects/Realizacion/reali3.PNG",
+              "Projects/Realizacion/reali4.jpg",
+              "Projects/Realizacion/reali5.jpg",
+              "Projects/Realizacion/reali6.jpg",
+              "Projects/Realizacion/reali7.jpg",
               
     ],
     videos: ["Projects/Realizacion/realizacionVideoPol.mp4",]
   },
-  {
-    title: "Impresión 3D",
-    description: "Diseño y fabricación de objetos físicos a partir de modelos digitales mediante impresión 3D.",
-    image: "https://imgs.search.brave.com/IAkO1_8GYsSreEJ2qA6nl6iwxKvBHZrGOVY4E-Y7lA0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTM0/NDIzNzc1L2VzL2Zv/dG8vMy1kLWltcHJl/c2klQzMlQjNuLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1f/aF9HS1NvcGtIRFBX/Zi04TU9MV0hjVTlY/cnh1MFE4RDJncEg2/Ty1mVGlnPQ",
-    category: "Impresión 3D",
-    gallery: [
-      "Projects/Impresion3D/impresion3d.jpg",
-      "Projects/Impresion3D/PodcastBA3.jpg",
-    ],
-    videos: [
-      "Projects/Impresion3D/enDirecto.mp4",
-      "Projects/Impresion3D/hanna3D.mp4"
-            
-    ]
-  },
+  
 ];
 
 /* ---------------- HELPERS  ---------------- */
