@@ -14,13 +14,11 @@ const spaces = [
     description:
       "Salas equipadas donde crear y desarrollar proyectos para clientes.",
     images: [
-      "img/espacio_desarrollo.jpg",
-      "Projects/programacion/programacion1.PNG",
-      "Projects/programacion/programacion.jpg",
-      "Projects/programacion/esp2.PNG",
-      "Projects/programacion/espaciotra.jpg"
-
-      
+      "img/espacio_desarrollo.webp",
+      "Projects/programacion/programacion1.webp",
+      "Projects/programacion/programacion.webp",
+      "Projects/programacion/esp2.webp",
+      "Projects/programacion/espaciotra.webp"
     ],
     features: [
       "Mesas de trabajo en equipo",
@@ -38,7 +36,7 @@ const spaces = [
     description:
       "Sala de reuniones y videoconferencias con proyección inmersiva 360 para una experiencia envolvente.",
     images: [
-      "img/sala_360R.jpeg",
+      "img/sala_360R.webp",
     ],
     features: [
       "Sistema de proyección envolvente",
@@ -112,11 +110,11 @@ const spaces = [
     description:
       "Los espacios que tus amigos no creerán que existen. Sólo si formas parte de Bits & Atoms lo entenderás.",
     images: [
-      "img/showroom1.jpeg",
-      "img/show.jpg",
-      "img/cafete.jpeg",
-      "img/jeep.jpeg",
-      "img/cotxe.jpeg",
+      "img/showroom1.webp",
+      "img/show.webp",
+      "img/cafete.webp",
+      "img/jeep.webp",
+      "img/cotxe.webp",
     ],
     features: [
       "Aplicación de IoT",
@@ -135,10 +133,10 @@ const spaces = [
       "Campus académico para que los alumnos socialicen. Las mejores ideas surgen aquí.",
     images: [
       
-      "img/desarrollo.jpeg",
-      "img/desarrollo1.jpeg",
-      "img/uni2.jpg",
-      "img/uni.jpg",
+      "img/desarrollo.webp",
+      "img/desarrollo1.webp",
+      "img/uni2.webp",
+      "img/uni.webp",
       
     ],
     features: [

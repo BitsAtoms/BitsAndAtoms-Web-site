@@ -19,7 +19,7 @@ const mentors = [
     name: "Carlos Silva",
     role: "Entrepreneurship",
     image:
-      "Mentores/Silva_Carlos.png",
+      "Mentores/Silva_Carlos.webp",
     bio: "Diseña y desarrolla proyectos emprendedores, trabajando el modelo de negocio, la estrategia y la ejecución.",
     social: {
       linkedin: "https://www.linkedin.com/in/carlossilvasantin/?locale=es_ES",
@@ -52,7 +52,7 @@ const mentors = [
   {
     name: "Marc Segarra",
     role: "Creatividad",
-    image: "Mentores/Marc_Segarra.png",
+    image: "Mentores/Marc_Segarra.webp",
     bio: "Explora y expande los límites de tu imaginación, convirtiendo ideas innovadoras en realidades impactantes.",
     social: {
       linkedin: "https://www.linkedin.com/in/marcsegarratorres/",
@@ -62,7 +62,7 @@ const mentors = [
   {
     name: "Daniel Vidal",
     role: "Propiedad intelectual",
-    image: "Mentores/Daniel_Vidal.png",
+    image: "Mentores/Daniel_Vidal.webp",
     bio: "Protege y maximiza el valor de tus ideas y productos con las herramientas legales adecuadas.",
     social: {
       linkedin: "https://www.linkedin.com/in/danielvidal1/",
@@ -72,7 +72,7 @@ const mentors = [
   {
     name: "Jordi Palou",
     role: "IoT",
-    image: "Mentores/Jordi_Palou.png",
+    image: "Mentores/Jordi_Palou.webp",
     bio: "Integra el mundo físico y el digital creando soluciones inteligentes, aprendiendo a diseñar y conectar sistemas reales.",
     social: {
       linkedin: "https://www.linkedin.com/in/jordipalou/",
@@ -82,7 +82,7 @@ const mentors = [
   {
     name: "Carles Mayans",
     role: "Estrategia y contenido",
-    image: "Mentores/Carles_Mayans.png",
+    image: "Mentores/Carles_Mayans.webp",
     bio: "Aprende a comunicar de manera efectiva y a crear contenido con criterio. La creatividad sin estrategia sólo es arte. ",
     social: {
       linkedin: "https://www.linkedin.com/in/cmayansc/",
@@ -92,7 +92,7 @@ const mentors = [
   {
     name: "Miguel Fernández",
     role: "Arcade",
-    image: "Mentores/Miguel_Fernández.png",
+    image: "Mentores/Miguel_Fernández.webp",
     bio: "Explora el interior de las máquinas arcade, abriéndolas, reparándolas y entendiendo cómo funcionan.",
     social: {
       linkedin: "#",
@@ -102,7 +102,7 @@ const mentors = [
   {
     name: "Joan Melchor",
     role: "Robótica",
-    image: "Mentores/Joan_Melchor.png",
+    image: "Mentores/Joan_Melchor.webp",
     bio: "Diseña y programa sistemas robóticos automatizados, trabajando con brazos robóticos, sensores y plataformas móviles.",
     social: {
       linkedin: "https://www.linkedin.com/in/joanmelchor/",
@@ -113,7 +113,7 @@ const mentors = [
     name: "Juan Antonio Domingo",
     role: "Producción audiovisual",
     image:
-      "Mentores/ja_Domingo.jpg",
+      "Mentores/ja_Domingo.webp",
     bio: "Da vida a tus ideas con excelencia técnica y creatividad, dominando cada etapa de la producción y postproducción audiovisual.    ",
     social: {
       linkedin: "#",

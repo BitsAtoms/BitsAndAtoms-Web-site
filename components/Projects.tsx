@@ -13,14 +13,14 @@ const projects = [
   {
     title: "Programación",
     description: "Desarrollo de software, aplicaciones y sistemas a través de código y pensamiento lógico.",
-    image: "Projects/programacion/programacion1.PNG",
+    image: "Projects/programacion/programacion1.webp",
     category: "Programación",
-    gallery: ["Projects/programacion/programacion.jpg",
-              "Projects/programacion/IOT.PNG",
-              "Projects/programacion/matProg.PNG",
-              "Projects/programacion/TomPro.PNG",
-              "Projects/programacion/JordiPro.PNG",
-              "Projects/programacion/Mano.PNG",
+    gallery: ["Projects/programacion/programacion.webp",
+              "Projects/programacion/IOT.webp",
+              "Projects/programacion/matProg.webp",
+              "Projects/programacion/TomPro.webp",
+              "Projects/programacion/JordiPro.webp",
+              "Projects/programacion/Mano.webp",
               
     ],
     videos: [
@@ -30,12 +30,12 @@ const projects = [
   {
     title: "Sistemas Robóticos Autónomos",
     description: "Creación de robots y sistemas inteligentes que combinan hardware, programación y automatización.",
-    image: "Projects/Robotica/Robot.jpg",
+    image: "Projects/Robotica/Robot.webp",
     category: "Robotica",
-    gallery: ["Projects/Robotica/brazos.jpg",
-            "Projects/Robotica/Robot.jpg",
-            "Projects/Robotica/brazo.PNG",
-            "Projects/Robotica/perroRBT.PNG",
+    gallery: ["Projects/Robotica/brazos.webp",
+            "Projects/Robotica/Robot.webp",
+            "Projects/Robotica/brazo.webp",
+            "Projects/Robotica/perroRBT.webp",
     ],
     videos: ["Projects/Robotica/perroRobot.mp4",
             "https://www.youtube.com/shorts/jaiPjj3FrEI",
@@ -47,12 +47,12 @@ const projects = [
   {
     title: "Impresión 3D",
     description: "Diseño y fabricación de objetos físicos a partir de modelos digitales mediante impresión 3D.",
-    image: "Projects/Impresion3D/hanna migflag.png",
+    image: "Projects/Impresion3D/hanna migflag.webp",
     category: "Impresión 3D",
     gallery: [
-      "Projects/Impresion3D/impresion3d.jpg",
-      "Projects/Impresion3D/PodcastBA3.jpg",
-      "Projects/Impresion3D/hanna migflag.png"
+      "Projects/Impresion3D/impresion3d.webp",
+      "Projects/Impresion3D/PodcastBA3.webp",
+      "Projects/Impresion3D/hanna migflag.webp"
     ],
     videos: [
       "Projects/Impresion3D/enDirecto.mp4",
@@ -63,10 +63,10 @@ const projects = [
   {
     title: "VideoJuegos",
     description: "Diseño y desarrollo de videojuegos interactivos combinando programación, arte y narrativa.",
-    image: "img/jeep.jpeg",
+    image: "img/jeep.webp",
     category: "Videojuegos",
     gallery: [
-      "Projects/Vjuegos/Backjeep.jpg",
+      "Projects/Vjuegos/Backjeep.webp",
       
     ],
     videos: [
@@ -78,10 +78,10 @@ const projects = [
 {
     title: "RV (Realidad Virtual)",
     description: "Experiencias inmersivas en realidad virtual que exploran nuevas formas de interacción digital.",
-    image: "Projects/RV/ImgRV.jpg",
+    image: "Projects/RV/ImgRV.webp",
     category: "RV (Realidad Virtual)",
     gallery: [
-      "Projects/RV/ImgRV.jpg",    ],
+      "Projects/RV/ImgRV.webp",    ],
     videos: [
       "Projects/RV/Video_gafasRv.mp4",
       
@@ -107,28 +107,28 @@ const projects = [
       </span>
     ),
     
-    image: "Projects/podcast/podcast1.jpg",
+    image: "Projects/podcast/podcast1.webp",
     category: "Podcast",
     gallery: {
       "BITS&ATOMS": [
         
-        "Projects/podcast/podcast3.jpg",
-        "Projects/podcast/podcast1.jpg",
-        "Projects/podcast/podcastElena.jpg",
-        "Projects/podcast/pddcast.jpg",
-        "Projects/podcast/podcastAg.jpg",
-        "Projects/podcast/pdcs.PNG",
+        "Projects/podcast/podcast3.webp",
+        "Projects/podcast/podcast1.webp",
+        "Projects/podcast/podcastElena.webp",
+        "Projects/podcast/pddcast.webp",
+        "Projects/podcast/podcastAg.webp",
+        "Projects/podcast/pdcs.webp",
         
       ],
       "ON THE CLOUD": [
-        "Projects/podcast/on the cloud 1.jpg",
-        "Projects/podcast/on the cloud 4.jpg",
-        "Projects/podcast/snvsjr.jpg",
-        "Projects/podcast/on the cloud 5.png",
+        "Projects/podcast/on the cloud 1.webp",
+        "Projects/podcast/on the cloud 4.webp",
+        "Projects/podcast/snvsjr.webp",
+        "Projects/podcast/on the cloud 5.webp",
       ],
       "SENIOR vs JUNIOR": [
-         "Projects/podcast/PodcastBA2.jpg",
-          "Projects/Realizacion/podcast.jpg",
+         "Projects/podcast/PodcastBA2.webp",
+          "Projects/Realizacion/podcast.webp",
       ]
     },
     videos: ["https://www.youtube.com/watch?v=_Fa6OJ_CoUQ",
@@ -140,21 +140,21 @@ const projects = [
   {
     title: "Realización",
     description: "Producción audiovisual de proyectos tecnológicos, desde la grabación hasta la edición final.",
-    image: "Projects/Realizacion/podcast2.jpg",
+    image: "Projects/Realizacion/podcast2.webp",
     category: "Realización",
-    gallery: ["Projects/Realizacion/pdcst.jpg",
-              "Projects/Realizacion/PodcastBA.jpg",
-              "Projects/Realizacion/podcast2.jpg",
-              "Projects/Realizacion/realizacion.jpg",
-              "Projects/Realizacion/realizacion1.jpg",
-              "Projects/Realizacion/juanAnt.jpg",
-              "Projects/Realizacion/reali1.PNG",
-              "Projects/Realizacion/reali2.PNG",
-              "Projects/Realizacion/reali3.PNG",
-              "Projects/Realizacion/reali4.jpg",
-              "Projects/Realizacion/reali5.jpg",
-              "Projects/Realizacion/reali6.jpg",
-              "Projects/Realizacion/reali7.jpg",
+    gallery: ["Projects/Realizacion/pdcst.webp",
+              "Projects/Realizacion/PodcastBA.webp",
+              "Projects/Realizacion/podcast2.webp",
+              "Projects/Realizacion/realizacion.webp",
+              "Projects/Realizacion/realizacion1.webp",
+              "Projects/Realizacion/juanAnt.webp",
+              "Projects/Realizacion/reali1.webp",
+              "Projects/Realizacion/reali2.webp",
+              "Projects/Realizacion/reali3.webp",
+              "Projects/Realizacion/reali4.webp",
+              "Projects/Realizacion/reali5.webp",
+              "Projects/Realizacion/reali6.webp",
+              "Projects/Realizacion/reali7.webp",
               
     ],
     videos: ["Projects/Realizacion/realizacionVideoPol.mp4",]
