@@ -20,6 +20,10 @@ const upload = multer({
   fileFilter: (req, file, cb) => {
     if (file.fieldname === "cv" && !file.originalname.match(/\.(pdf|doc|docx)$/)) {
       return cb(new Error("Solo se permiten PDF o DOC para el CV"), false);
+    }else if (file.fieldname === "coverLetter" && !file.originalname.match(/\.(pdf|doc|docx)$/)) {
+      return cb(new Error("Solo se permiten PDF o DOC para la carta de presentación"), false);
+    }else if(fileSize > 5 * 1024 * 1024){
+      return cb(new Error("Archivo demasiado grande. Máximo 5MB."), false);
     }
     cb(null, true);
   }
