@@ -117,7 +117,7 @@ try {
       });
     }
 
-    await sendEmail({
+ /*   await sendEmail({
       subject: `Nueva solicitud: ${name ||"Sin asunto"}`,
       text: `
         Nombre: ${name}
@@ -128,7 +128,7 @@ try {
       attachments,
       replyTo: email
     });
-
+*/
     return res.status(200).json({
       success: true,
       message: "Solicitud enviada correctamente.",
