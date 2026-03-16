@@ -45,7 +45,7 @@ export function Hero() {
       className="
         relative h-screen w-full overflow-hidden
         bg-background
-        flex items-center justify-center
+        flex items-center justify-center lg:pt-20
       "
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
