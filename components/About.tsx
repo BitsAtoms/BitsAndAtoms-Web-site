@@ -68,11 +68,11 @@ export function About() {
     >
 
       {/* ================= CONTENIDO ================= */}
-      <div className="max-w-7xl mx-auto space-y-32">
+      <div className="max-w-7xl mx-auto space-y-32 md:px-10">
 
         {/* ================= HEADER GENERAL ================= */}
         <motion.div
-          className="text-center space-y-4"
+          className="text-center space-y-4 "
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -115,30 +115,30 @@ export function About() {
 
           {/* Texto */}
           <motion.div
-            className="space-y-6 max-w-xl text-left "
+            className="space-y-6 max-w-xl text-left md:max-w-3xl"
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-black text-foreground">
+            <h3 className="text-3xl font-black text-foreground md:text-4xl">
               Donde la tecnología {" "}
-              <span className="text-primary">cobra vida</span>
+              <span className="text-primary md:text-4xl">cobra vida</span>
             </h3>
 
-            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto" lang="es">
+            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto  md:text-xl " lang="es">
               Bits and Atoms es un proyecto de Admira nacido desde una visión 
               de tecnología con propósito, pensado para formar, acompañar y crear 
               oportunidades reales para jóvenes con talento. El aprendizaje se basa 
               en la práctica: construir, probar y equivocarse es parte del camino.
             </p>
 
-            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto" lang="es">
+            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto md:text-xl " lang="es">
               El programa combina inteligencia artificial, IoT y pensamiento 
               creativo para desarrollar proyectos reales desde el primer día, 
               trabajando con retos auténticos, ideas con sentido y crecimiento en equipo.
             </p>
 
-            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto" lang="es">
+            <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto md:text-xl " lang="es">
               Un entorno donde la curiosidad y las ganas de aprender marcan la diferencia,
               y donde cada proyecto impulsa el desarrollo profesional.
             </p>
@@ -163,8 +163,7 @@ export function About() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
               >
-                <Card className="relative p-8 rounded-3xl border border-border bg-card overflow-hidden">
-                  {/* Top gradient */}
+                <Card className="relative p-8 rounded-3xl border border-border bg-card overflow-hidden md:h-full ">
                   <div
                     className={`absolute top-0 left-0 right-0 h-1 bg-gradient-to-r ${program.gradient}`}
                   />
@@ -172,7 +171,7 @@ export function About() {
                   <h4 className="text-xl font-bold mb-4 text-foreground">
                     {program.title}
                   </h4>
-                  <p className="text-muted-foreground text-lg leading-relaxed text-justify hyphens-auto" lang="es">
+                  <p className="text-muted-foreground text-lg leading-relaxed  hyphens-auto" lang="es">
                     {program.description}
                   </p>
                 </Card>

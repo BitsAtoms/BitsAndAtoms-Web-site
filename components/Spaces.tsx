@@ -252,10 +252,10 @@ export function Spaces() {
           {spaces.map((space) => (
             <div 
               key={space.id} 
-              className="min-w-[85vw] snap-center bg-card rounded-3xl border border-border overflow-hidden shadow-sm flex flex-col"
+              className="min-w-[85vw] md:min-w-[45vw] snap-center bg-card rounded-3xl border border-border overflow-hidden shadow-sm flex flex-col md:h-[550px]"
             >
               {/* Imagen Móvil */}
-              <div className="h-48 relative">
+              <div className="h-48 md:h-3/5 relative">
                 <SpaceImageSlideshow images={space.images} name={space.name} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                 <div className="absolute bottom-4 left-4 flex items-center gap-2 text-white">
@@ -265,7 +265,7 @@ export function Spaces() {
               </div>
 
               {/* Contenido Móvil */}
-              <div className="p-6 flex-1 flex flex-col">
+              <div className="p-6 flex-1 md:flex-none md:h-2/5 flex flex-col md:overflow-y-auto">
                 <p className="text-muted-foreground text-sm mb-6 flex-1">
                   {space.description}
                 </p>

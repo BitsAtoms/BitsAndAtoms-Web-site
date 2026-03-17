@@ -128,15 +128,22 @@ export function Mentors() {
   const [startIndex, setStartIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(4);
   const [isMobileLayout, setIsMobileLayout] = useState(false);
+  const [mentorCardWidth, setMentorCardWidth] = useState("85vw"); // New state for card width
   const focusRef = useScrollFocusSection("blue");
 
   useEffect(() => {
     const handleResize = () => {
+      
       const mobile = window.innerWidth < 1024;
       setIsMobileLayout(mobile);
 
-      if (window.innerWidth < 640) setItemsPerPage(1);
-      else if (window.innerWidth < 1024) setItemsPerPage(2);
+      if (window.innerWidth < 640) {
+        setItemsPerPage(1);
+        setMentorCardWidth("85vw"); // Full width for very small screens
+      } else if (window.innerWidth < 1024) {
+        setItemsPerPage(2);
+        setMentorCardWidth("45vw"); // Half width for tablets, showing two cards
+      }
       else setItemsPerPage(4);
     };
 
@@ -207,7 +214,7 @@ export function Mentors() {
             <>
               <button
                 onClick={prevSlide}
-                className="absolute top-1/2 -left-12 -translate-y-1/2 p-3 rounded-full bg-background border border-border hover:bg-primary hover:text-white transition z-10"
+                className="absolute top-1/2 -left-12 -translate-y-1/2 p-3 rounded-full bg-background border border-border hover:bg-primary hover:text-white transition z-10 "
               >
                 <ChevronLeft />
               </button>
@@ -241,7 +248,7 @@ export function Mentors() {
                   className="px-3 snap-center shrink-0"
               
                   style={{ 
-                    width: isMobileLayout ? "85vw" : `${100 / mentors.length}%` 
+                    width: isMobileLayout ? mentorCardWidth : `${100 / mentors.length}%` 
                   }}
                 >
                   <Card className="group h-full overflow-hidden rounded-3xl border border-border bg-card hover:border-primary/50 transition-all duration-300">
